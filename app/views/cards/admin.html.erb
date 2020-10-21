@@ -1,0 +1,31 @@
+<div class="container">
+  <h1 class="content_title"><%= @content_title %></h1>
+  <%= render partial: 'content_menu' %>
+    <table>
+      <tr>
+        <th>ソートキー</th>
+        <th>所属</th>
+        <th>名前</th>
+        <th>行先</th>
+        <th>帰社予定</th>
+        <th colspan="2"></th>
+      </tr>
+    <% @cards.each do |obj| %>
+    <tr>
+      <td width="35px"><%= obj.sort_key %></td>
+      <td width="80px"><%= obj.department %></td>
+      <td width="100px"><a href="/cards/<%= obj.id %>"><%= obj.name %></a></td>
+      <td width="50%"><%= obj.destination %></td>
+      <td width="100px"><%= obj.schedule %></td>
+      <td width="50px"><a href="/cards/profile_edit/<%= obj.id %>">編集</a></td>
+      <td width="50px"><a href="javascript:delData(<%= (obj.id.to_s + ",'".to_s + obj.name.to_s).html_safe %>');">削除</a></td>
+    </tr>
+    <% end %>
+    </table>
+<script>
+function delData(id,name){
+  if (confirm('「' + name + '」のデータを削除しますか？')){
+    document.location = "/cards/delete/" + id;
+  }
+}
+</script>

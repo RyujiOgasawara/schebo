@@ -1,0 +1,30 @@
+<div class="container">
+  <h1 class="content_title"><%= @content_title %></h1>
+  <% if user_signed_in? %>
+  <%= render partial: 'content_menu' %>
+    <table>
+      <tr>
+        <th>所属</th>
+        <th>名前</th>
+        <th>状態</th>
+        <th>行先</th>
+        <th>帰社予定</th>
+        <th>次回出社</th>
+        <th></th>
+      </tr>
+    <% @cards.each do |obj| %>
+      <tr>
+        <td width="80px"><%= obj.department %></td>
+        <td width="100px"><a href="/cards/<%= obj.id %>"><%= obj.name %></a></td>
+        <td width="80px"><%= obj.status %></td>
+        <td width="40%"><%= obj.destination %></td>
+        <td width="100px"><%= obj.schedule %></td>
+        <td width="100px"><%= l obj.arrive_date, format: :custom3 %></td>
+        <td width="50px"><a href="/cards/edit/<%= obj.id %>">編集</a></td>
+      </tr>
+    <% end %>
+    </table>
+    <% else %>
+    <span class="prompt_message">ログイン情報が分からない方は「XXX」までご連絡下さい。</span>
+  <% end %>
+</div>

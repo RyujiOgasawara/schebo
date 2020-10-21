@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>schebo</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %><%#これが無いとdeviseのsign_out時のメソッドがDELETEからGETに変更されてしまう。%>
+  </head>
+
+  <body>
+    <div class="wrapper">
+    
+      <header>
+      
+        <h1>
+          <%= link_to image_tag('otec.png', class: "logo"), root_path %>
+        </h1>
+
+        <% if user_signed_in? %>
+
+        <nav>
+          <ul>
+            <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+            <li><%= link_to "新規データ登録", "/cards/add" %></li>
+          </ul>
+        </nav>
+        <% else %>
+
+        <nav>
+          <ul>
+            <li><%= link_to "ログイン", new_user_session_path %></li>
+            <li><%= link_to "新規アカウント登録", new_user_registration_path %></li>
+          </ul>
+        </nav>
+
+        <% end %>
+
+      </header>
+      
+      <%= yield %>
+
+      <footer>
+        <p>
+          copyright OTEC 2020.
+        </p>
+      </footer>
+      
+    </div>
+    
+  </body>
+
+</html>

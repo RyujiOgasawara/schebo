@@ -1,0 +1,33 @@
+<div class="container">
+  <h1 class="content_title"><%= @content_title %></h1>
+  <%= render partial: 'content_menu' %>
+  <p>最終更新：<%= l @card.updated_at, format: :custom1 %></p>
+  <a class="button" href="/cards/edit/<%= @card.id %>">編集</a><br>
+  <br>
+  <table>
+    <tr>
+      <th>名前</th>
+      <td><%= @card.name %></td>
+    </tr>
+    <tr>
+      <th>行先</th>
+      <td><%= @card.destination %></td>
+    </tr>
+    <tr>
+      <th>帰社時間</th>
+      <td><%= @card.schedule %></td>
+    </tr>
+    <tr>
+      <th>携帯電話</th>
+      <td><%= @card.mobile %></td>
+    </tr>
+    <tr>
+      <th>次回出社</th>
+      <td><%= l @card.arrive_date, format: :custom3 %></td>
+    </tr>
+  </table>
+  <hr>
+  <br>
+  <p>登録情報に修正が必要な場合は「XXX」までご依頼下さい</p>
+  <a class="button" href="/cards/admin/">管理者画面</a>
+</div>

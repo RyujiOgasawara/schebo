@@ -1,0 +1,13 @@
+Time::DATE_FORMATS[:datetime_jp] = '%Y年%m月%d日%H時%M分'
+Time::DATE_FORMATS[:date_jp] = '%Y年%m月%d日'
+Time::DATE_FORMATS[:time_jp] = '%H時%M分'
+Time::DATE_FORMATS[:MDHM_jp] = '%m月%d日%H時%M分'
+Time::DATE_FORMATS[:DHM_jp] = '%d日%H時%M分'
+Time::DATE_FORMATS[:YM_jp] = '%Y年%m月'
+Time::DATE_FORMATS[:MD_jp] = '%m月%d日'
+Time::DATE_FORMATS[:Y_jp] = '%Y年'
+Time::DATE_FORMATS[:M_jp] = '%m月'
+Time::DATE_FORMATS[:D_jp] = '%d日'
+Time::DATE_FORMATS[:H_jp] = '%H時'
+Time::DATE_FORMATS[:M_jp] = '%M分'
+
