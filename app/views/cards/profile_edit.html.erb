@@ -1,6 +1,6 @@
 <h1 class="content_title"><%= @content_title %></h1>
 <p>最終更新：<%= l @card.updated_at, format: :custom1 %></p>
-<%= form_for(@card, url:{controller:'cards', action:'edit', id:@card.id}) do |form| %>
+<%= form_for(@card, url:{controller:'cards', action:'profile_edit', id:@card.id}) do |form| %>
   <div class="form-group">
     <label for="name">名前</label><%= form.text_field :name,{class:"form-control"} %>
   </div>
